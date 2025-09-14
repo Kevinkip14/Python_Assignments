@@ -1,0 +1,56 @@
+def simple_chatbot():
+    print("Welcome to the Data Science & AI Chatbot!")
+    print("I can answer questions about data science and artificial intelligence.")
+    print("Type 'exit' to end the conversation.\n")
+    
+    # Chatbot loop
+    while True:
+        user_input = input("You: ").lower()
+        
+        if user_input == 'exit':
+            print("Chatbot: Goodbye! Have a great day learning about data science!")
+            break
+        
+        response = get_response(user_input)
+        print(f"Chatbot: {response}\n")
+
+def get_response(input_text):
+    # Predefined responses based on keywords
+    if any(word in input_text for word in ["hello", "hi", "hey"]):
+        return "Hello! How can I help you with data science or AI today?"
+    
+    if "data science" in input_text:
+        if "what is" in input_text:
+            return "Data science is an interdisciplinary field that uses scientific methods, processes, algorithms, and systems to extract knowledge and insights from structured and unstructured data."
+        if any(word in input_text for word in ["career", "job"]):
+            return "Data science careers include roles like data analyst, data scientist, machine learning engineer, and business intelligence analyst."
+        return "Data science combines statistics, programming, and domain expertise to extract insights from data."
+    
+    if any(term in input_text for term in ["artificial intelligence", "ai"]):
+        if "what is" in input_text:
+            return "Artificial intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think like humans and mimic their actions."
+        if any(word in input_text for word in ["type", "category"]):
+            return "AI can be categorized as narrow AI (designed for specific tasks) or general AI (hypothetical AI that can understand and learn any intellectual task)."
+        return "AI is a broad field that includes machine learning, natural language processing, computer vision, and robotics."
+    
+    if any(term in input_text for term in ["machine learning", "ml"]):
+        if "what is" in input_text:
+            return "Machine learning is a subset of AI that provides systems the ability to automatically learn and improve from experience without being explicitly programmed."
+        if any(word in input_text for word in ["supervised", "unsupervised"]):
+            return "Supervised learning uses labeled data to train models, while unsupervised learning finds patterns in unlabeled data."
+        return "Machine learning algorithms build models based on sample data to make predictions or decisions."
+    
+    if any(term in input_text for term in ["python", "r language", "programming"]):
+        return "Python and R are the most popular programming languages in data science. Python is known for its versatility, while R is strong in statistical analysis."
+    
+    if "statistics" in input_text:
+        return "Statistics is fundamental to data science, providing methods for data collection, analysis, interpretation, and presentation."
+    
+    if any(term in input_text for term in ["neural network", "deep learning"]):
+        return "Neural networks are computing systems inspired by the human brain. Deep learning uses multi-layered neural networks to analyze complex patterns."
+    
+    if "big data" in input_text:
+        return "Big data refers to extremely large datasets that may be analyzed computationally to reveal patterns, trends, and associations."
+    
+    # Default response if no keywords match
+    return "I'm not sure I understand. Could you ask about data science, AI, machine learning, or related topics?"
